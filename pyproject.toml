@@ -1,0 +1,22 @@
+[project]
+name = "vehicle-simulation-environment"
+dynamic = ["version"]
+dependencies = [
+  "numpy",
+]
+readme = "README.md"
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "black",
+  "pre-commit"
+]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+]
