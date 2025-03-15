@@ -25,3 +25,6 @@ select = [
 where = [
   "src"
 ]
+
+[project.scripts]
+simulate-cli = "simulation:main.main"
