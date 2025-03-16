@@ -2,8 +2,9 @@
 
 import argparse
 import pathlib
+import sys
 
-from simulation import test_module
+from vehicle_simulation_environment import test_module
 
 
 def main():
@@ -23,4 +24,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

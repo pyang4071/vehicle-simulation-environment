@@ -27,4 +27,4 @@ where = [
 ]
 
 [project.scripts]
-simulate-cli = "simulation:main.main"
+vehicle-simulation-environment = "vehicle_simulation_environment.__main__:main"
