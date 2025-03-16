@@ -4,8 +4,6 @@ import argparse
 import pathlib
 import sys
 
-from vehicle_simulation_environment import test_module
-
 
 def main():
     parser = argparse.ArgumentParser(
@@ -20,7 +18,6 @@ def main():
     )
     args = parser.parse_args()
     print(args)
-    test_module.testing()
 
 
 if __name__ == "__main__":
