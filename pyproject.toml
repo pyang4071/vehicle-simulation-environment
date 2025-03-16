@@ -1,0 +1,48 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatch-vcs",
+  "hatchling",
+]
+
+[project]
+name = "vehicle-simulation-environment"
+dynamic = ["version"]
+dependencies = [
+  "numpy",
+]
+readme = "README.md"
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "black",
+  "pre-commit"
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/vehicle_simulation_environment/version.py"
+
+[tool.hatch.build]
+artifacts = [
+  "src/vehicle_simulation_environment/version.py",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/vehicle_simulation_environment",
+]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+]
+
+[project.scripts]
+vehicle-simulation-environment = "vehicle_simulation_environment.__main__:main"
