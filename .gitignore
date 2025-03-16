@@ -1,0 +1,5 @@
+/.direnv
+/.venv
+/.ruff_cache
+version.py
+__pycache__
