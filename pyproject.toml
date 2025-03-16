@@ -43,10 +43,5 @@ select = [
     "F",
 ]
 
-[tool.setuptools.packages.find]
-where = [
-  "src"
-]
-
 [project.scripts]
 vehicle-simulation-environment = "vehicle_simulation_environment.__main__:main"
