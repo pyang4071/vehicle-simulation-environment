@@ -1,3 +1,3 @@
-from .version import __version__  # Simple import
+from .version import __version__
 
-__all__ = ["__version__"]  # Explicit export
+__all__ = ["__version__"]
