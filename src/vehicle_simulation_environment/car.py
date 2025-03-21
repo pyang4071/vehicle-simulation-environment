@@ -1,5 +1,6 @@
 import numpy as np
 import time
+from threading import Timer
 
 
 class Parameters(object):
@@ -20,6 +21,7 @@ class Parameters(object):
         self.accel = accel_start
         self.ang_vel = angvel_start
         self.ang_accel = ang_accel_start
+        self.REFRESH_RATE = 100
 
 
 class Car(object):
@@ -27,6 +29,8 @@ class Car(object):
 
     def __init__(self, init_param):
         self.reset(init_param)
+        t = Timer(0, self.update_location)
+        t.start()
 
     def reset(self, param):
         self.x = param.x
@@ -58,3 +62,6 @@ class Car(object):
         dy = mag_dist * np.cos(self.theta)
         self.x += dx
         self.y += dy
+
+        t = Timer(1 / self.REFRESH_RATE, self.update_location)
+        t.start()
