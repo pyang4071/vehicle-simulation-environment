@@ -17,23 +17,24 @@ readme = "README.md"
 dev = [
   "ruff",
   "black",
-  "pre-commit"
+  "pre-commit",
+  "pytest",
 ]
 
 [tool.hatch.version]
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/vehicle_simulation_environment/version.py"
+version-file = "vehicle_simulation_environment/version.py"
 
 [tool.hatch.build]
 artifacts = [
-  "src/vehicle_simulation_environment/version.py",
+  "vehicle_simulation_environment/version.py",
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = [
-  "src/vehicle_simulation_environment",
+  "vehicle_simulation_environment",
 ]
 
 [tool.ruff.lint]
