@@ -45,11 +45,21 @@ class Car(object):
 
     def update_param(self, param):
         self.accel = param.accel
-        self.ang_accel = param.accel
+        self.ang_accel = param.ang_accel
 
     def stop(self):
         self.START = 0
         self.timer.cancel()
+        print(
+            f"""
+            x = {self.x}\n
+            y = {self.y}\n
+            theta = {self.theta}\n
+            velocity = {self.vel}\n
+            ang vel = {self.ang_vel}\n 
+            accel = {self.accel}\n 
+            ang accel = {self.ang_accel}"""
+        )
 
     def update_location(self):
         if self.START == 0:
