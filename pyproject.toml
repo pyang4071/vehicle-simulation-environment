@@ -17,7 +17,8 @@ readme = "README.md"
 dev = [
   "ruff",
   "black",
-  "pre-commit"
+  "pre-commit",
+  "pytest",
 ]
 
 [tool.hatch.version]
