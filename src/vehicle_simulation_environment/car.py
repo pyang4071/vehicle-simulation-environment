@@ -21,16 +21,17 @@ class Parameters(object):
         self.accel = accel_start
         self.ang_vel = angvel_start
         self.ang_accel = ang_accel_start
-        self.REFRESH_RATE = 100
 
 
 class Car(object):
     """Model of a car as a point"""
 
     def __init__(self, init_param):
+        self.REFRESH_RATE = 100
         self.reset(init_param)
-        t = Timer(0, self.update_location)
-        t.start()
+        self.START = 1
+        self.timer = Timer(0, self.update_location)
+        self.timer.start()
 
     def reset(self, param):
         self.x = param.x
@@ -46,7 +47,14 @@ class Car(object):
         self.accel = param.accel
         self.ang_accel = param.accel
 
+    def stop(self):
+        self.START = 0
+        self.timer.cancel()
+
     def update_location(self):
+        if self.START == 0:
+            return
+
         self.cur_time = time.monotonic()
         dtime = self.cur_time - self.prev_time
         self.prev_time = self.cur_time
@@ -63,5 +71,6 @@ class Car(object):
         self.x += dx
         self.y += dy
 
-        t = Timer(1 / self.REFRESH_RATE, self.update_location)
-        t.start()
+        if self.START == 1:
+            self.timer = Timer(0, self.update_location)
+            self.timer.start()
