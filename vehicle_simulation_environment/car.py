@@ -76,8 +76,8 @@ class Car(object):
         self.theta = self.theta % (2 * np.pi)
         mag_dist = self.vel * dtime
 
-        dx = mag_dist * np.sin(self.theta)
-        dy = mag_dist * np.cos(self.theta)
+        dx = mag_dist * np.cos(self.theta)
+        dy = mag_dist * np.sin(self.theta)
         self.x += dx
         self.y += dy
 
