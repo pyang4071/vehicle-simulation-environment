@@ -32,16 +32,16 @@ class TestCar(object):
         assert (expected_y + 0.05) >= test_car.y
 
     def test_constant_accel(self):
-        init_params = car.Parameters(0, 0, 0, 0, 1, 0, 0)
+        init_params = car.Parameters(0, 0, 0, 1, 1, 0, 0)
         test_car = car.Car(init_params)
 
         time_start = time.monotonic()
-        time.sleep(1)
+        time.sleep(3)
 
         dtime = test_car.cur_time - time_start
         test_car.stop()
         assert test_car.accel == 1
         assert test_car.x == 0
-        expected_y = 0.5 * 1 * (dtime**2)
+        expected_y = 1 * dtime + 0.5 * 1 * (dtime**2)
         assert (expected_y - 0.05) <= test_car.y
         assert (expected_y + 0.05) >= test_car.y
